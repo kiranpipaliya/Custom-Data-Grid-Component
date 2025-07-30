@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧱 Custom Data Grid Component
 
-## Getting Started
+A fully customizable and performant Data Grid built with **Next.js 14**, **React 18**, **TypeScript**, **TailwindCSS**, **ShadCN UI**, **Framer Motion**, and **React Context API**.
 
-First, run the development server:
+## 🔗 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🌍 Deployed URL: [https://dev-kiran-pipaliya-custom-data-grid.netlify.app](https://custom-datagrid.vercel.app)
+
+🎥 Demo Video: [Watch on Loom](https://www.loom.com/) *(replace with your actual video URL)*
+
+---
+
+## 🚀 Features
+
+- ⚙️ **Dynamic Column Configuration**
+- 📌 **Column Pinning** (Left/Right)
+- 📏 **Resizable & Freezable Columns**
+- 🧭 **Sorting & Filtering** (Per Column & Global)
+- 🔍 **Debounced Global Search**
+- 🧹 **Clear All Filters**
+- 🪝 **Client & Server Pagination**
+- 🧪 **Custom Cell Renderers**
+- 💾 **Export to CSV/JSON**
+- 📋 **Column Visibility Toggle**
+- 🔀 **Drag & Drop Column Reordering**
+- ✅ **Row Selection & Bulk Actions** *(Coming Soon)*
+- 🧩 **Grouping & Density Control** *(Coming Soon)*
+- 🛠 **Inline Editing** *(Coming Soon)*
+
+---
+
+## 📁 Folder Structure
+
+```
+├── app/
+│   ├── components/        # UI components
+│   ├── contexts/          # React Contexts for Grid State
+│   ├── constants/         # Action types and shared constants
+│   ├── lib/               # Utility functions (CSV export, etc.)
+│   ├── types/             # TypeScript types/interfaces
+│   └── page.tsx          # Entry point
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **React 18**
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **ShadCN UI**
+- **React Context API**
+- **Framer Motion**
+- **Recharts (optional for charts)**
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/kiranpipaliya/Custom-Data-Grid-Component.git
+cd Custom-Data-Grid-Component
+npm install
+npm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌐 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is deployed on **Vercel**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To deploy your fork:
+
+1. Push to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy 🚀
+
+---
+
+## 📽 Demo Recording Instructions
+
+Record a short **5-minute** demo:
+
+- Showcase row selection, filtering, sorting
+- Demonstrate export, pinning, resizing
+- Mention upcoming features like inline editing, grouping
+
+Use Loom, OBS, or any screen recorder.
+
+---
+
+## 📬 Submission Checklist
+
+- ✅ GitHub repository created
+- ✅ Comprehensive README with features and install steps
+- ✅ Deployed live version on Vercel/Netlify
+- ✅ 5-minute demo video recorded
+- ✅ Repository link and live URL submitted
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
+
+---
+
+> Made with ❤️ by [Kiran Pipaliya](https://github.com/kiranpipaliya)

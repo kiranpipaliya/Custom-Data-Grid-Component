@@ -3,8 +3,9 @@ import { useGrid } from '@/contexts/DataGridContext';
 import { TableCell, TableRow } from '../ui/table';
 import { getOrderedColumns } from '@/utils/getOrderedColumns';
 import { cx } from 'class-variance-authority';
+import { User } from '@/types/grid.types';
 
-const DataGridRow = ({ row }: { row: any }) => {
+const DataGridRow = ({ row }: { row: User }) => {
 	const {
 		state: { columns, visibleColumns, pinnedColumns },
 	} = useGrid();
@@ -22,7 +23,7 @@ const DataGridRow = ({ row }: { row: any }) => {
 					key={col.field}
 					style={widthStyle}
 				>
-					{col?.render?.(row[col.field], row)}
+					{col?.render?.((row)[col.field], row)}
 				</TableCell>
 			);
 		});

@@ -1,14 +1,12 @@
-import { ColumnEnum } from '@/types/grid.types';
+import { ColumnEnum, RenderFunction } from '@/types/grid.types';
 
 import React from 'react';
-export type RenderFunction = (value: any, row: any) => React.ReactNode;
-
 import dayjs from 'dayjs';
 import { Column } from '@/types/grid.types';
 import AvatarCell from '@/components/AvatarCell';
 
 export type ColumnConfig = Column & {
-	render?: (value: any, row?: any) => React.ReactNode;
+	render?: RenderFunction;
 };
 
 export const COLUMN_CONFIG: Record<ColumnEnum, ColumnConfig> = {
@@ -93,7 +91,8 @@ export const COLUMN_CONFIG: Record<ColumnEnum, ColumnConfig> = {
 		filterable: true,
 		visible: true,
 		resizable: true,
-		render: (value) => dayjs(value).format('DD MMM YYYY'),
+		render: (value) =>
+			!!value ? dayjs(value as string).format('DD MMM YYYY') : '',
 	},
 
 	[ColumnEnum.STATUS]: {
@@ -113,7 +112,7 @@ export const COLUMN_CONFIG: Record<ColumnEnum, ColumnConfig> = {
 						: 'bg-red-100 text-red-800'
 				}`}
 			>
-				{value}
+				{value as string}
 			</span>
 		),
 	},
@@ -128,7 +127,7 @@ export const COLUMN_CONFIG: Record<ColumnEnum, ColumnConfig> = {
 		visible: true,
 		resizable: false,
 		render: (value) => {
-			return <AvatarCell src={value} />;
+			return <AvatarCell src={value as string} />;
 		},
 	},
 };

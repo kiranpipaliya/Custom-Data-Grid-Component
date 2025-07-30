@@ -119,7 +119,7 @@ const reducer = (state: GridState, action: Action): GridState => {
 						? {
 								...col,
 								visible: col.visible === false ? true : false,
-						  }
+						}
 						: col,
 				),
 			};

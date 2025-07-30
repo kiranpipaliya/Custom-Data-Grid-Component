@@ -83,16 +83,6 @@ const DataGridHeaderCell = (props: DataGridHeaderCellPropsType) => {
 		});
 	};
 
-	if (!visibleColumns.includes(col.field)) return;
-	const currentSort = sortModel?.[0];
-	const isSorted = currentSort?.field === col.field;
-	const sortIcon =
-		isSorted && currentSort.sort === 'asc' ? (
-			<ArrowUp size={12} className="inline-block ml-1" />
-		) : isSorted && currentSort.sort === 'desc' ? (
-			<ArrowDown size={12} className="inline-block ml-1" />
-		) : null;
-
 	const [, dragRef] = useDrag({
 		type: 'COLUMN',
 		item: { field: col.field },
@@ -111,6 +101,16 @@ const DataGridHeaderCell = (props: DataGridHeaderCellPropsType) => {
 		dragRef(node);
 		dropRef(node);
 	};
+
+	if (!visibleColumns.includes(col.field)) return;
+	const currentSort = sortModel?.[0];
+	const isSorted = currentSort?.field === col.field;
+	const sortIcon =
+		isSorted && currentSort.sort === 'asc' ? (
+			<ArrowUp size={12} className="inline-block ml-1" />
+		) : isSorted && currentSort.sort === 'desc' ? (
+			<ArrowDown size={12} className="inline-block ml-1" />
+		) : null;
 
 	return (
 		<TableHead

@@ -6,7 +6,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { cn } from '@/utils/cn';
 
 export default function Home() {
-	const { theme, toggleTheme } = useTheme();
+	const { theme } = useTheme();
 	return (
 		<main
 			className={cn(

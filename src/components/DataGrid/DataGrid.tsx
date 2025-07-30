@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useGrid } from '@/contexts/DataGridContext';
 import axios from 'axios';
 import DataGridHeader from './DataGridHeader';
@@ -15,7 +15,7 @@ const DataGrid = () => {
 	const { page, pageSize } = state.pagination;
 	const { sortModel, filterModel, filterModelSearch } = state;
 
-	const fetchData = async () => {
+	const fetchData = useCallback(async () => {
 		try {
 			dispatch({ type: ActionTypes.SET_LOADING, payload: true });
 			const filtersParam = encodeURIComponent(
@@ -74,19 +74,19 @@ const DataGrid = () => {
 		} finally {
 			dispatch({ type: ActionTypes.SET_LOADING, payload: false });
 		}
-	};
+	}, [dispatch,  page, pageSize, sortModel, filterModel, filterModelSearch, state.columns.length]);
 
 	useEffect(() => {
 		fetchData();
-	}, [page, pageSize, sortModel, filterModel, filterModelSearch]);
+	}, [page, pageSize, sortModel, filterModel, filterModelSearch, fetchData]);
 
 	if (state.loading) {
-        return (
-            <div className="flex justify-center items-center p-6">
-                <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
-            </div>
-        );
-    }
+		return (
+			<div className="flex justify-center items-center p-6">
+				<div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+			</div>
+		);
+	}
 	return (
 		<div>
 			<Table>

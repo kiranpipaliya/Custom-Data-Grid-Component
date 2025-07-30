@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 
 const GlobalSearch = () => {
 	const { dispatch, state } = useGrid();
-	const [searchTerm, setSearchTerm] = useState(state.filterModel.search || '');
+    const [searchTerm, setSearchTerm] = useState(String(state.filterModel.search || ''));
 
 	useEffect(() => {
 		const debounceTimer = setTimeout(() => {
@@ -17,7 +17,7 @@ const GlobalSearch = () => {
 		}, 800);
 
 		return () => clearTimeout(debounceTimer);
-	}, [searchTerm]);
+	}, [searchTerm, dispatch]);
 
 	return (
 		<div className="py-3 flex items-center gap-2">

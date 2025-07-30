@@ -7,8 +7,15 @@ export enum ColumnEnum {
 	JOIN_DATE = 'joinDate',
 	STATUS = 'status',
 	AVATAR = 'avatar',
-    EMAIL="email"
+	EMAIL = 'email',
 }
+
+export type UserStatus = 'active' | 'inactive';
+export type UserRole = 'admin' | 'manager' | 'developer' | 'analyst' | string;
+export type RenderFunction<T = unknown> = (
+	value: T,
+	row: Record<string, unknown>,
+) => React.ReactNode;
 
 export interface User {
 	id: number;
@@ -20,6 +27,7 @@ export interface User {
 	joinDate: string;
 	status: 'active' | 'inactive';
 	avatar?: string;
+	[key: string]: string | number | undefined;
 }
 
 export interface Column {
@@ -36,7 +44,7 @@ export interface Column {
 	resizable?: boolean;
 	frozen?: boolean;
 	group?: string | null;
-	render?: (value: any, row: any) => React.ReactNode;
+	render?: RenderFunction;
 }
 
 export interface PaginationState {
@@ -63,7 +71,7 @@ export interface GridState {
 	pinnedColumns: { left: string[]; right: string[] };
 	sortModel: SortModel[];
 	filterModelSearch: Record<string, FilterValue>;
-	filterModel: Record<string, any>;
+	filterModel: Record<string, string | number | boolean | null | undefined>;
 	selectedRows: Set<string>;
 	pagination: PaginationState;
 	loading: boolean;
