@@ -14,7 +14,7 @@ export const COLUMN_CONFIG: Record<ColumnEnum, ColumnConfig> = {
 		field: ColumnEnum.ID,
 		headerName: 'ID',
 		type: 'number',
-		width: 80,
+		width: 85,
 		sortable: true,
 		filterable: true,
 		visible: true,

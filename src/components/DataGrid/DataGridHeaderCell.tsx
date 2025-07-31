@@ -8,6 +8,7 @@ import { TableHead } from '../ui/table';
 import { cx } from 'class-variance-authority';
 import { handleColumnResize } from '@/utils/handleColumnResize';
 import { ActionTypes } from '@/app/constants/ActionsTypeConstant';
+import { calculateLeftOffset, calculateRightOffset } from '@/utils/calculateLeftOffset';
 
 type DataGridHeaderCellPropsType = {
 	col: Column;
@@ -123,7 +124,16 @@ const DataGridHeaderCell = (props: DataGridHeaderCellPropsType) => {
 				},
 				'relative py-2 px-4',
 			)}
-			style={{ width: col.width ?? 'auto', minWidth: 50 }}
+			style={{
+				width: col.width ?? 'auto',
+				minWidth: 50,
+				...(pinnedColumns.left.includes(col.field) && {
+					left: calculateLeftOffset(col.field, columns, pinnedColumns),
+				}),
+				...(pinnedColumns.right.includes(col.field) && {
+					right: calculateRightOffset(col.field, columns, pinnedColumns),
+				}),
+			}}
 		>
 			<div
 				className={`font-bold select-none flex items-center justify-between`}

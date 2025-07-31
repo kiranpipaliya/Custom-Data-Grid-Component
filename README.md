@@ -4,9 +4,9 @@ A fully customizable and performant Data Grid built with **Next.js 14**, **React
 
 ## 🔗 Live Demo
 
-🌍 Deployed URL: [https://dev-kiran-pipaliya-custom-data-grid.netlify.app](https://custom-datagrid.vercel.app)
+🌍 Deployed URL: [https://custom-data-grid-component-dvowarltt-kiranpipaliyas-projects.vercel.app/](https://custom-data-grid-component-dvowarltt-kiranpipaliyas-projects.vercel.app/)
 
-🎥 Demo Video: [Watch on Loom](https://www.loom.com/) *(replace with your actual video URL)*
+🎥 Demo Video: [Custom Grid Demo](https://drive.google.com/file/d/18PAg7vJgUPX2QJ2Fbx5Kmbn-gkdQw-BD/view?usp=sharing) *(replace with your actual video URL)*
 
 ---
 

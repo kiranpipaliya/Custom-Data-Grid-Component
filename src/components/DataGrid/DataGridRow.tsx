@@ -4,6 +4,10 @@ import { TableCell, TableRow } from '../ui/table';
 import { getOrderedColumns } from '@/utils/getOrderedColumns';
 import { cx } from 'class-variance-authority';
 import { User } from '@/types/grid.types';
+import {
+	calculateLeftOffset,
+	calculateRightOffset,
+} from '@/utils/calculateLeftOffset';
 
 const DataGridRow = ({ row }: { row: User }) => {
 	const {
@@ -21,9 +25,25 @@ const DataGridRow = ({ row }: { row: User }) => {
 						'pinned-right': pinnedColumns.right.includes(col.field),
 					})}
 					key={col.field}
-					style={widthStyle}
+					style={{
+						...widthStyle,
+						...(pinnedColumns.left.includes(col.field) && {
+							left: calculateLeftOffset(
+								col.field,
+								columns,
+								pinnedColumns,
+							),
+						}),
+						...(pinnedColumns.right.includes(col.field) && {
+							right: calculateRightOffset(
+								col.field,
+								columns,
+								pinnedColumns,
+							),
+						}),
+					}}
 				>
-					{col?.render?.((row)[col.field], row)}
+					{col?.render?.(row[col.field], row)}
 				</TableCell>
 			);
 		});
